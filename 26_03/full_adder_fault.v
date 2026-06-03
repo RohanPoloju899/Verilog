@@ -1,3 +1,5 @@
+`timescale 1ns/1ps;
+
 module full_adder_fault(
     input A,
     input B,
@@ -36,7 +38,7 @@ module full_adder_fault(
     assign Cout=fault_enable_Cout?(fault_select_Cout?1'b1:1'b0):Cout_normal;
 endmodule
 
-`timescale 1ns/1ps;
+
 
 module full_adder_fault_tb;
     reg A;
