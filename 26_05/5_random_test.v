@@ -31,9 +31,10 @@ module random_test_tb;
             B   = $random % 2;
             Cin = $random % 2;
     
-            #5;
             exp_Sum  = A ^ B ^ Cin;
             exp_Cout = (A & B) | (B & Cin) | (A & Cin);
+
+            #5;
         end
         $finish;
     end
