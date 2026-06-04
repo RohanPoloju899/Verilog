@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module full_adder(
+module random_test(
     input A, B, Cin,
     output Sum, Cout
 );
@@ -8,11 +8,11 @@ module full_adder(
     assign Cout = (A & B) | (B & Cin) | (A & Cin);
 endmodule
 
-module tb_full_adder;
+module random_test_tb;
     reg A, B, Cin;
     wire Sum, Cout;
     
-    full_adder uut (
+    random_test uut (
         .A(A), .B(B), .Cin(Cin), .Sum(Sum), .Cout(Cout)
     );
     
