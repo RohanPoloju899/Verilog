@@ -5,7 +5,7 @@ module latch(
 );
     always @(*) begin
         if(clk)
-            Q<=D;
+            Q=D;
     end
 endmodule
 
@@ -70,25 +70,33 @@ module lssd_tb();
         $dumpvars(0, lssd_tb);
     end
     
-    always #5 clk0 = ~clk0;
-    always #5 clk1 = ~clk1;
-    
     initial begin
         clk0=0;
-        clk1=1;
-        
-                 A=0;B=0;
-        #10 A=0;B=1;
-        #10 A=1;B=0;
-        #10 A=1;B=1;
-        #10 $finish;
+        #1;
+        forever begin
+            clk0=1;
+            #1;
+            clk0=0;
+            #3; 
+        end 
+    end
+
+    initial begin 
+        forever begin
+            clk1=0;
+            #3;
+            clk1=1;
+            #1;
+        end
+    end 
+    
+    initial begin
+            A=1;B=1; 
+        #50 $finish;
     end
 endmodule    
-    
-    
-    
 
-   
+    
 
 
 
