@@ -1,9 +1,7 @@
 `timescale 1ns/1ps;
 
 module dff (
-    input clk,
-    input d,
-    input rst,
+    input clk,d,rst,
     output reg q
 );
     always @(posedge clk or posedge rst) begin
@@ -15,45 +13,22 @@ module dff (
 endmodule
 
 module lfsr(
-    input clk,
-    input w0,
-    input load,
-    input rst,
+    input clk,w0,load,rst,
     output q1,q2,q3
 );
     wire w1,w2,w3,w4,w5;
     
-    dff d0(
-        .clk(clk),
-        .d(load?w0:w5),
-        .rst(rst),
-        .q(w1)
-    );  
+    dff d0(.clk(clk),.d(load?w0:w5),.rst(rst),.q(w1));  
 
-    dff d1(
-        .clk(clk),
-        .d(w1),
-        .rst(rst),
-        .q(w2)
-    );  
+    dff d1(.clk(clk),.d(w1),.rst(rst),.q(w2));  
 
     assign q1=w2;
 
-    dff d2(
-        .clk(clk),
-        .d(w2),
-        .rst(rst),
-        .q(w3)
-    );
+    dff d2(.clk(clk),.d(w2),.rst(rst),.q(w3));
 
     assign q2=w3;
 
-    dff d3(
-        .clk(clk),
-        .d(w3),
-        .rst(rst),
-        .q(w4)
-    );
+    dff d3(.clk(clk),.d(w3),.rst(rst),.q(w4));
 
     assign q3=w4;
 
@@ -65,10 +40,7 @@ module lfsr_tb();
     reg clk,load,w0,rst;
     wire q1,q2,q3;
 
-    lfsr uut(
-        .clk(clk),.load(load),.w0(w0),.rst(rst),
-        .q1(q1),.q2(q2),.q3(q3)
-    );
+    lfsr uut(.clk(clk),.load(load),.w0(w0),.rst(rst),.q1(q1),.q2(q2),.q3(q3));
 
     initial begin
         $dumpfile("lfsr_wave.vcd");
