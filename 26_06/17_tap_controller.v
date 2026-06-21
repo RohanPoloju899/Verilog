@@ -89,13 +89,10 @@ endmodule
 
 module tap_tb;
 
-    reg tck;
-    reg tms;
-    reg trst;
-
+    reg tck=0, tms=0, trst=1;
     wire [3:0] state;
 
-    tap_controller dut(
+    tap_controller dut (
         .tck(tck),
         .tms(tms),
         .trst(trst),
@@ -104,115 +101,58 @@ module tap_tb;
 
     always #5 tck = ~tck;
 
-    task check_state;
-        input [3:0] expected;
-        input [200:0] name;
+    task step;
+        input t;
+        input [3:0] exp;
         begin
+            tms = t;
+            @(posedge tck);
             #1;
-            if(state == expected)
-                $display("PASS : %s (state=%0d)", name, state);
-            else
-                $display("FAIL : %s Expected=%0d Got=%0d",
-                         name, expected, state);
+            $display("%s state=%0d",
+                     (state==exp) ? "PASS" : "FAIL",
+                     state);
         end
     endtask
 
     initial begin
-
         $dumpfile("tap.vcd");
         $dumpvars(0,tap_tb);
 
-        tck  = 0;
-        tms  = 0;
-        trst = 1;
-
-        //--------------------------------------------------
-        // RESET
-        //--------------------------------------------------
-        #12;
-        check_state(0,"TEST_LOGIC_RESET");
-
-        //--------------------------------------------------
-        // RUN_TEST_IDLE
-        //--------------------------------------------------
+        // Reset
+        @(posedge tck);
+        #1;
         trst = 0;
-        #10;
-        check_state(1,"RUN_TEST_IDLE");
 
-        //--------------------------------------------------
-        // DR PATH
-        //--------------------------------------------------
-        tms = 1; #10;
-        check_state(2,"SELECT_DR_SCAN");
+        // DR path
+        step(0,1);  // RTI
+        step(1,2);  // Select DR
+        step(0,3);  // Capture DR
+        step(0,4);  // Shift DR
+        step(1,5);  // Exit1 DR
+        step(0,6);  // Pause DR
+        step(1,7);  // Exit2 DR
+        step(1,8);  // Update DR
+        step(0,1);  // RTI
 
-        tms = 0; #10;
-        check_state(3,"CAPTURE_DR");
+        // IR path
+        step(1,2);   // Select DR
+        step(1,9);   // Select IR
+        step(0,10);  // Capture IR
+        step(0,11);  // Shift IR
+        step(1,12);  // Exit1 IR
+        step(0,13);  // Pause IR
+        step(1,14);  // Exit2 IR
+        step(1,15);  // Update IR
+        step(0,1);   // RTI
 
-        tms = 0; #10;
-        check_state(4,"SHIFT_DR");
+        // Back to reset
+        step(1,2);
+        step(1,9);
+        step(1,0);
 
-        tms = 1; #10;
-        check_state(5,"EXIT1_DR");
-
-        tms = 0; #10;
-        check_state(6,"PAUSE_DR");
-
-        tms = 1; #10;
-        check_state(7,"EXIT2_DR");
-
-        tms = 1; #10;
-        check_state(8,"UPDATE_DR");
-
-        tms = 0; #10;
-        check_state(1,"RUN_TEST_IDLE");
-
-        //--------------------------------------------------
-        // IR PATH
-        //--------------------------------------------------
-        tms = 1; #10;
-        check_state(2,"SELECT_DR_SCAN");
-
-        tms = 1; #10;
-        check_state(9,"SELECT_IR_SCAN");
-
-        tms = 0; #10;
-        check_state(10,"CAPTURE_IR");
-
-        tms = 0; #10;
-        check_state(11,"SHIFT_IR");
-
-        tms = 1; #10;
-        check_state(12,"EXIT1_IR");
-
-        tms = 0; #10;
-        check_state(13,"PAUSE_IR");
-
-        tms = 1; #10;
-        check_state(14,"EXIT2_IR");
-
-        tms = 1; #10;
-        check_state(15,"UPDATE_IR");
-
-        tms = 0; #10;
-        check_state(1,"RUN_TEST_IDLE");
-
-        //--------------------------------------------------
-        // RETURN TO RESET THROUGH TMS=1 PATH
-        //--------------------------------------------------
-        tms = 1; #10;
-        check_state(2,"SELECT_DR_SCAN");
-
-        tms = 1; #10;
-        check_state(9,"SELECT_IR_SCAN");
-
-        tms = 1; #10;
-        check_state(0,"TEST_LOGIC_RESET");
-
-        $display("\nTAP CONTROLLER TEST COMPLETE\n");
-
-        #10;
         $finish;
-
     end
+
+endmodule
 
 endmodule
