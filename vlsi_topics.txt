@@ -20,9 +20,9 @@
 20. power grid design and IR drop
 21. placement and routing
 22. standard cell design and cell libraries & Multi-Vt cell selection strategies
-23. fab manufacturing 
-24. interconnect design 
-25. computer architecture: branch prediction logic, SIMD & VLIW architectures, TLB
+23. fab manufacturing - FinFET, planar MOSFET
+24. interconnect design - SerDes 
+25. computer architecture: branch prediction logic, SIMD & VLIW architectures, TLB, CSR, ISR
 26. Cadence
 27. network theory
 28. hardware security: secure boot, crypto accelerators,secret key storage
