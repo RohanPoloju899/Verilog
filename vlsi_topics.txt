@@ -2,7 +2,7 @@
 2. power & clock gating & DVFS
 3. metastability, sychronizers & clock domain crossing
 4. clock skew & clock tree synthesis & network on chip
-5. MOS physics(parasitic capacitance,EM interference,IR drop)
+5. MOS physics(parasitic capacitance,EM interference,IR drop), different logic families and transistors
 6. bus design
 7. memory design(cache,register banks), memory controller
 8. ISA
