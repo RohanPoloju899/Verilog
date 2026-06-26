@@ -1,0 +1,23 @@
+1. Binary & floating point arithmetic algorithms
+2. power & clock gating & DVFS
+3. metastability, sychronizers & clock domain crossing
+4. clock skew & clock tree synthesis & network on chip
+5. MOS physics(parasitic capacitance,EM interference,IR drop)
+6. bus design
+7. memory design(cache,register banks), memory controller
+8. ISA
+9. pipeline & RISC
+10. STA(setup/hold times, timing closure)
+11. signal integrity(crosst talk, noise analysis)
+12. basic digital design(mux,adder,FPU)
+13. basic analog design(bandgap reference circuit)
+14. writing testbenches
+15. DFT
+16. fault tolerant design
+17. Corner case test & stress test
+18. initialization of flip flops and other memory elements
+19. Analog to Digital, Digital to Analog converters
+
+
+
+
