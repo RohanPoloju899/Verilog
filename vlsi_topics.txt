@@ -11,12 +11,25 @@
 11. signal integrity(crosst talk, noise analysis)
 12. basic digital design(mux,adder,FPU)
 13. basic analog design(bandgap reference circuit)
-14. writing testbenches
-15. DFT
+14. writing testbenches & verification
+15. DFT & reliable design 
 16. fault tolerant design
 17. Corner case test & stress test
 18. initialization of flip flops and other memory elements
 19. Analog to Digital, Digital to Analog converters
+20. power grid design and IR drop
+21. placement and routing
+22. standard cell design and cell libraries & Multi-Vt cell selection strategies
+23. fab manufacturing 
+24. interconnect design 
+25. computer architecture: branch prediction logic, SIMD & VLIW architectures, TLB
+26. Cadence
+27. network theory
+28. hardware security: secure boot, crypto accelerators,secret key storage
+
+Analog: 
+1. Forier Transform
+2. SPICE simulation
 
 
 
