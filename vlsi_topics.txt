@@ -1,3 +1,4 @@
+Digital:
 1. Binary & floating point arithmetic algorithms
 2. power & clock gating & DVFS
 3. metastability, sychronizers & clock domain crossing
