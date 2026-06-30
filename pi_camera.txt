@@ -2,6 +2,7 @@ sudo apt install python3-opencv
 sudo apt install v4l-utils
 import cv2
 
+//for local livestreaming
 cap = cv2.VideoCapture("/dev/video2")
 
 if not cap.isOpened():
@@ -22,3 +23,75 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
+//camera file
+import cv2
+import time
+import requests
+
+cap = cv2.VideoCapture("/dev/video2")  # USB webcam
+
+SERVER_URL = "http://127.0.0.1:5000/upload"
+
+if not cap.isOpened():
+    print("Camera not found")
+    exit()
+
+last_time = 0
+
+while True:
+    ret, frame = cap.read()
+
+    if not ret:
+        print("Frame error")
+        break
+
+    cv2.imshow("Camera", frame)
+
+    # send every 5 seconds
+    if time.time() - last_time >= 5:
+        last_time = time.time()
+
+        _, img = cv2.imencode(".jpg", frame)
+
+        try:
+            response = requests.post(
+                SERVER_URL,
+                files={"file": img.tobytes()}
+            )
+            print("Uploaded:", response.status_code)
+        except Exception as e:
+            print("Upload failed:", e)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+
+//flask file
+from flask import Flask, request
+import os
+import time
+
+app = Flask(__name__)
+
+SAVE_DIR = "received_images"
+os.makedirs(SAVE_DIR, exist_ok=True)
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    file = request.files["file"]
+
+    filename = f"{int(time.time())}.jpg"
+    path = os.path.join(SAVE_DIR, filename)
+
+    file.save(path)
+
+    print("Saved:", path)
+    return "OK"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
+
+
