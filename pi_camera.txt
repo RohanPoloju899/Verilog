@@ -1,0 +1,24 @@
+sudo apt install python3-opencv
+sudo apt install v4l-utils
+import cv2
+
+cap = cv2.VideoCapture("/dev/video2")
+
+if not cap.isOpened():
+    print("USB camera not opening")
+    exit()
+
+while True:
+    ret, frame = cap.read()
+
+    if not ret:
+        print("Frame failed")
+        break
+
+    cv2.imshow("USB Webcam Stream", frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
