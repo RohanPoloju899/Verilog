@@ -27,6 +27,8 @@ Digital:
 26. Cadence
 27. network theory
 28. hardware security: secure boot, crypto accelerators,secret key storage
+29. error detection and correction algorithms
+30. hardware accelerators: encryption, cryptocurrency
 
 Analog: 
 1. Forier Transform
