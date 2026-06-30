@@ -1,5 +1,6 @@
 sudo apt install python3-opencv
-sudo apt install v4l-utils
+sudo apt install v4l-utils (--list-devices
+)
 import cv2
 
 //for local livestreaming
