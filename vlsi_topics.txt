@@ -1,4 +1,4 @@
-Digital:
+Digital-ASIC:
 1. Binary & floating point arithmetic algorithms
 2. power & clock gating & DVFS
 3. metastability, sychronizers & clock domain crossing
@@ -33,6 +33,12 @@ Digital:
 Analog: 
 1. Forier Transform
 2. SPICE simulation
+
+Embedded:
+1. C,C++
+2. Network theory
+
+FPGA engineer-?
 
 
 
