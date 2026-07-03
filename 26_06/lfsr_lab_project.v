@@ -1,12 +1,12 @@
-module lfsr #(
-	parameter N=8
-)(
+`timescale 1ns/1ps;
+module lfsr (
 	input clk,
 	input rst_n,
-	output reg [N-1:0] q
+	output reg [7:0] q
 );
-	reg [26:0] count=0;
+	/*reg [26:0] count=0;
 	reg clk1hz=0;
+	
 	always @(posedge clk) begin
 		if(count==49_999_999) begin
 			count<=0;
@@ -14,18 +14,48 @@ module lfsr #(
 		end
 		else 
 			count<=count+1;
-	end
+	end*/
 
 	wire feedback;
-	assign feedback=q[N-1]^q[5]^q[4]^q[3];
+	assign feedback=q[7]^q[5]^q[4]^q[3];
 	
-	always @(posedge clk1hz or negedge rst_n) begin
+	always @(posedge clk or negedge rst_n) begin
 		if(!rst_n) 
 			q<=8'b00000001;
 		else
-			q<={feedback,q[N-1:1]};
+			q<={q[6:0],feedback};
 	end
 endmodule
+
+module lfsr_tb();
+    reg clk;
+	reg rst_n;
+	wire [7:0] q;
+	
+	lfsr uut(
+	   .clk(clk),
+	   .rst_n(rst_n),
+	   .q(q)
+	);
+	
+	always #5 clk=~clk;
+	
+	initial begin
+	   clk=1;rst_n=0;
+	   #10;
+	   rst_n=1;
+	   #200;
+	   $finish;
+    end
+
+    always @(posedge clk) begin
+        #1;
+        $display("time:%.1f ns lfsr:%b",$realtime,q);
+    end
+endmodule
+	   
+	
+	
 
 set_property -dict{PACKAGE_PIN F14 IOSTANDARD LVCMOS33} [get_ports {clk}];
 set_property -dict{PACKAGE_PIN A4 IOSTANDARD LVCMOS33} [get_ports {q[7]}];
