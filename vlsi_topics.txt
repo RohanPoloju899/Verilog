@@ -38,6 +38,10 @@ Embedded:
 1. C,C++
 2. Network theory
 
+learn system verilog through chip verify website
+write everything learnt and do program for every topic
+while reading coa, do programs in sysverilog, as well as write them down
+
 FPGA engineer-?
 
 
