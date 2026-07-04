@@ -55,17 +55,17 @@ module lfsr_tb();
 endmodule
 	   
 	
-	
+set_property IOSTANDARD LVCMOS33 [get_ports {q[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {q[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports clk]
+set_property IOSTANDARD LVCMOS33 [get_ports rst_n]
 
-set_property PACKAGE_PIN F14 [get_ports clk]
-set_property PACKAGE_PIN K1 [get_ports rst_n]
-set_property PACKAGE_PIN A4 [get_ports {q[7]}]
-set_property PACKAGE_PIN B4 [get_ports {q[6]}]
-set_property PACKAGE_PIN A3 [get_ports {q[5]}]
-set_property PACKAGE_PIN B3 [get_ports {q[4]}]
-set_property PACKAGE_PIN A2 [get_ports {q[3]}]
-set_property PACKAGE_PIN B2 [get_ports {q[2]}]
-set_property PACKAGE_PIN C3 [get_ports {q[1]}]
-set_property PACKAGE_PIN E6 [get_ports {q[0]}]
+
 
 
