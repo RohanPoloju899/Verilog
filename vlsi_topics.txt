@@ -41,7 +41,7 @@ Embedded:
 learn system verilog through chip verify website
 write everything learnt and do program for every topic
 while reading coa, do programs in sysverilog, as well as write them down
-for every topic above,write program in system verilog 
+for every topic above,write program in system verilog,for every sub topic 
 
 FPGA engineer-?
 
