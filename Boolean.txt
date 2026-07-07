@@ -1,0 +1,21 @@
+consensus theorm:
+       xy+x'z+yz=xy+x'z
+
+distributive law:
+      x+yz=(x+y)(x+z)
+
+x+y=x+x'y
+(x+y)'=x'(x+y')
+
+xy=x(x'+y)
+(xy)'=x'+xy'
+
+x=x+xy
+x=x(x+y)
+
+xy=(x xor y) xor (x+y)
+x+y=(x xor y) xor (xy)
+
+multiply x+x' or add xx'
+
+total 10
