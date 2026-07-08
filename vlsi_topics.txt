@@ -53,5 +53,7 @@ parallel to serial
 serial to parallel
 moore, mealy, overlapping, non overlapping
 
+https://www.mbit.edu.in/wp-content/uploads/2020/05/computer-systems-Architecture.pdf
+
 
 
