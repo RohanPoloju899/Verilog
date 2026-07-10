@@ -1,0 +1,34 @@
+import RPi.GPIO as GPIO
+import time
+RED = 17
+GREEN = 27
+BLUE = 22
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(RED, GPIO.OUT)
+GPIO.setup(GREEN, GPIO.OUT)
+GPIO.setup(BLUE, GPIO.OUT)
+while True:
+    # RED ON
+    GPIO.output(RED, True)
+    GPIO.output(GREEN, False)
+    GPIO.output(BLUE, False)
+    print("RED ON")
+    time.sleep(10)
+    # GREEN ON
+    GPIO.output(RED, False)
+    GPIO.output(GREEN, True)
+    GPIO.output(BLUE, False)
+    print ("GREEN ON")
+    time.sleep(10)
+    # BLUE ON
+    GPIO.output(RED, False)
+    GPIO.output(GREEN, False)
+    GPIO.output(BLUE, True)
+    print ("BLUE ON")
+    time.sleep(10)
+    # ALL ON (WHITE)
+    GPIO.output(RED, True)
+    GPIO.output(GREEN, True)
+    GPIO.output(BLUE, True)
+    print ("WHITE (ALL ON)")
+    time.sleep(10)
