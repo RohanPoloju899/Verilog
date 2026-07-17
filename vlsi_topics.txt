@@ -55,5 +55,7 @@ moore, mealy, overlapping, non overlapping
 
 https://www.mbit.edu.in/wp-content/uploads/2020/05/computer-systems-Architecture.pdf
 
+learn linux commands
+
 
 
