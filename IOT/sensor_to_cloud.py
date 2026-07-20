@@ -21,3 +21,11 @@ while True:
       aio.send("python-sample", temperature)
 
       sleep(10)
+
+"""
+DHT11            Raspberry Pi
+-----------------------------
+VCC   ---------> 3.3V (Pin 1)
+DATA  ---------> GPIO4 (Pin 7)
+GND   ---------> GND (Pin 6)
+"""
