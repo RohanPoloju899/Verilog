@@ -1,14 +1,14 @@
 from Adafruit_IO import Client
-import adafruit_dht
-import board
-import time
+from adafruit_dht import DHT11
+from board import D4
+from time import sleep
 
-ADAFRUIT_AIO_USERNAME = "rohan_poloju"
-ADAFRUIT_AIO_KEY = "YOUR_NEW_AIO_KEY"
+username = "rohan_poloju"
+key = ""
 
-aio = Client(ADAFRUIT_AIO_USERNAME, ADAFRUIT_AIO_KEY)
+aio = Client(username, key)
 
-dht = adafruit_dht.DHT11(board.D4)
+dht = DHT11(D4)
 
 while True:
       temperature = dht.temperature
@@ -20,4 +20,4 @@ while True:
       # Send temperature to the feed
       aio.send("python-sample", temperature)
 
-      time.sleep(10)
+      sleep(10)
