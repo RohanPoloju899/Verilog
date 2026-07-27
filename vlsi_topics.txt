@@ -59,6 +59,6 @@ learn linux commands
 
 https://chatgpt.com/c/6a61f94a-6718-83e8-8f54-f074e250b729
 
-learn maths from chatgpt, ask for derivations, prompt sub headings from maths book,compounding effect applies
+learn maths from chatgpt, ask for derivations, prompt sub headings from maths book,compounding effect applies, only keywords are important.
 
 
