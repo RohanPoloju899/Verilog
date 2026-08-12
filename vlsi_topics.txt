@@ -29,6 +29,7 @@ Digital-ASIC:
 28. hardware security: secure boot, crypto accelerators,secret key storage
 29. error detection and correction algorithms
 30. hardware accelerators: encryption, cryptocurrency
+31. transistor and gate logic structures
 
 Analog: 
 1. Forier Transform
@@ -62,4 +63,4 @@ https://chatgpt.com/c/6a61f94a-6718-83e8-8f54-f074e250b729
 learn maths from chatgpt, ask for derivations, prompt sub headings from maths book,compounding effect applies, only keywords are important.
 
 for maths,check all possible combinations for each example, explore every topic, explore example
-
+ for dsa and maths, break down into smaller problems, have strong fundamentals
