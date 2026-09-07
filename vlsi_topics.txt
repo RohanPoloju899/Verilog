@@ -40,9 +40,6 @@ Embedded:
 2. Network theory
 
 learn system verilog through chip verify website
-write everything learnt and do program for every topic
-while reading coa, do programs in sysverilog, as well as write them down
-for every topic above,write program in system verilog,for every sub topic 
 
 FPGA engineer-?
 
@@ -60,7 +57,4 @@ learn linux commands
 
 https://chatgpt.com/c/6a61f94a-6718-83e8-8f54-f074e250b729
 
-learn maths from chatgpt, ask for derivations, prompt sub headings from maths book,compounding effect applies, only keywords are important.
 
-for maths,check all possible combinations for each example, explore every topic, explore example
- for dsa and maths, break down into smaller problems, have strong fundamentals
