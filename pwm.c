@@ -1,3 +1,31 @@
+while (1)
+{
+    HAL_Delay(1000);
+
+    HAL_SuspendTick();
+
+    HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
+
+    HAL_ResumeTick();
+}
+
+
+while (1)
+{
+    HAL_Delay(1000);
+
+    HAL_SuspendTick();
+
+    HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+
+    HAL_ResumeTick();
+
+    // Restore system clock after waking
+    SystemClock_Config();
+}
+
+
+
 void setup()
 {
   Serial.begin(9600);
