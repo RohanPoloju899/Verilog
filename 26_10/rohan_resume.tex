@@ -1,0 +1,110 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[top=0.6in,bottom=0.6in,left=0.75in,right=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% ---------- Section style ----------
+\definecolor{accent}{HTML}{1F3A5F}
+\titleformat{\section}
+  {\large\bfseries\color{accent}\scshape}
+  {}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{9pt}{5pt}
+
+% ---------- List style ----------
+\setlist[itemize]{leftmargin=1.2em, itemsep=2pt, topsep=3pt, parsep=0pt}
+
+% ---------- Custom commands ----------
+% \entry{Title}{Date}{Subtitle}{Detail}
+\newcommand{\entry}[4]{%
+  \textbf{#1} \hfill \textit{#2}\\
+  #3 \hfill #4\par\vspace{4pt}}
+
+\begin{document}
+
+% ---------- Header ----------
+\begin{center}
+  {\Huge\bfseries\color{accent} POLOJU ROHAN}\\[6pt]
+  Hyderabad, Telangana, India\\[2pt]
+  \href{mailto:polojurohan1@gmail.com}{polojurohan1@gmail.com}
+  \quad$|$\quad +91 7569636099
+\end{center}
+
+% ---------- Summary ----------
+\section{Summary}
+Upcoming post-graduate with a degree in Computer Science, seeking to launch a
+career in software development. Hands-on experience with Java, C, and Python,
+as well as web development technologies. A fast learner with a passion for
+problem-solving and an eagerness to take on new challenges. Looking for a role
+where I can apply my skills and contribute to the development of innovative
+software solutions.
+
+% ---------- Education ----------
+\section{Academic Qualifications}
+\entry{Master of Technology (M.Tech) -- Digital Systems}{2025 -- 2027}
+      {JNTU College}{Score: 72\%}
+
+\entry{Bachelor of Technology (B.Tech) -- CSE (IoT)}{2021 -- 2025}
+      {Guru Nanak Institutions Technical Campus}{Score: 70\%}
+
+\entry{Intermediate}{2019 -- 2021}
+      {Narayana Junior College, Hyderabad}{Score: 86\%}
+
+% ---------- Skills ----------
+\section{Skills}
+\begin{itemize}
+  \item \textbf{Programming Languages:} Python, Java, C
+  \item \textbf{Core Concepts:} Data Structures and Algorithms
+  \item \textbf{Web Development:} HTML, CSS, JavaScript, React
+\end{itemize}
+
+% ---------- Projects ----------
+\section{Projects}
+\textbf{Genetic Algorithm Approach for Crop Yield Prediction in Agriculture}
+\hfill \textit{Machine Learning}
+\begin{itemize}
+  \item Developed a database for agricultural crop data and implemented ML
+        algorithms for accurate crop prediction.
+  \item Employed genetic algorithms to enhance model performance by optimizing
+        parameters, supported by a purpose-built database.
+  \item Applied feature selection techniques, guided by genetic algorithms, to
+        improve prediction accuracy.
+\end{itemize}
+
+\vspace{4pt}
+\textbf{Handwritten Digit Recognition using CNN}
+\hfill \textit{Deep Learning}
+\begin{itemize}
+  \item Developed a CNN model for accurate handwritten digit recognition,
+        addressing a key challenge in pattern recognition.
+  \item Used TensorFlow and Anaconda to design, implement, and train a CNN
+        architecture on the MNIST dataset.
+  \item Achieved high accuracy in digit classification, demonstrating the
+        effectiveness of CNNs for image-based tasks.
+  \item Contributed to intelligent systems for document processing and gained
+        experience in deep learning model development and evaluation.
+\end{itemize}
+
+% ---------- Certifications ----------
+\section{Certifications}
+\begin{itemize}
+  \item \textbf{HackerRank:} Python; Java with Data Structures and Algorithms
+  \item \textbf{Coursera:} HTML, CSS, React, and Web Development
+  \item \textbf{Kaggle:} SQL and Backend Development
+\end{itemize}
+
+% ---------- Achievements ----------
+\section{Achievements}
+\begin{itemize}
+  \item Actively participated in technical and non-technical events.
+  \item Received a certificate for participating in a hackathon.
+  \item Actively participated in HR Conclave.
+\end{itemize}
+
+\end{document}
